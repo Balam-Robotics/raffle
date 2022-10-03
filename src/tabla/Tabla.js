@@ -99,11 +99,11 @@ export default function Tabla() {
         <Divider />
         <HStack spacing={8} paddingBottom="5px">
           <VStack>
-            <MarcadorDisponible />
+            <MarcadorDisponible isInvisible={true} />
             <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
           </VStack>
           <VStack>
-            <MarcadorComprado />
+            <MarcadorComprado isInvisible={true} />
             <Text>Boletos vendidos: {fetchedData[0].sold}</Text>
           </VStack>
         </HStack>
@@ -153,140 +153,140 @@ export default function Tabla() {
                     {item.A === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.A} />
                     )}
                   </Td>
                   <Td>
                     {item.B === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.B} />
                     )}
                   </Td>
                   <Td>
                     {item.C === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.C} />
                     )}
                   </Td>
                   <Td>
                     {item.D === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.D} />
                     )}
                   </Td>
                   <Td>
                     {item.E === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.E} />
                     )}
                   </Td>
                   <Td>
                     {item.F === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.F} />
                     )}
                   </Td>
                   <Td>
                     {item.G === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.G} />
                     )}
                   </Td>
                   <Td>
                     {item.H === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.H} />
                     )}
                   </Td>
                   <Td>
                     {item.I === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.I} />
                     )}
                   </Td>
                   <Td>
                     {item.J === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.J} />
                     )}
                   </Td>
                   <Td>
                     {item.K === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.K} />
                     )}
                   </Td>
                   <Td>
                     {item.L === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.L} />
                     )}
                   </Td>
                   <Td>
                     {item.M === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.M} />
                     )}
                   </Td>
                   <Td>
                     {item.N === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.N} />
                     )}
                   </Td>
                   <Td>
                     {item.O === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.O} />
                     )}
                   </Td>
                   <Td>
                     {item.P === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.P} />
                     )}
                   </Td>
                   <Td>
                     {item.Q === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.Q} />
                     )}
                   </Td>
                   <Td>
                     {item.R === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.R} />
                     )}
                   </Td>
                   <Td>
                     {item.S === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.S} />
                     )}
                   </Td>
                   <Td>
                     {item.T === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
-                      <MarcadorComprado />
+                      <MarcadorComprado precio={item.T} />
                     )}
                   </Td>
                 </Tr>
