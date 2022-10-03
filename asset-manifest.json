@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/rifa/static/js/main.6c2a988d.js",
+    "static/js/787.3b61fa34.chunk.js": "/rifa/static/js/787.3b61fa34.chunk.js",
+    "static/media/Echo.png": "/rifa/static/media/Echo.afe4f370a2cf6a6e7bfe.png",
+    "static/media/Polaroid.png": "/rifa/static/media/Polaroid.42ded1ba2c83bb78bd35.png",
+    "static/media/AirPods3.png": "/rifa/static/media/AirPods3.80bc16f417f9c82b5838.png",
+    "static/media/iPadAir.png": "/rifa/static/media/iPadAir.3a1e6df3f59186fd331f.png",
+    "static/media/Bose.png": "/rifa/static/media/Bose.0fa004299623c95214ee.png",
+    "index.html": "/rifa/index.html",
+    "main.6c2a988d.js.map": "/rifa/static/js/main.6c2a988d.js.map",
+    "787.3b61fa34.chunk.js.map": "/rifa/static/js/787.3b61fa34.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.6c2a988d.js"
+  ]
+}
