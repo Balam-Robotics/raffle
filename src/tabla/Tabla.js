@@ -15,7 +15,7 @@ import {
   TableContainer,
   Divider,
 } from '@chakra-ui/react';
-import { RepeatIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon, ArrowForwardIcon, RepeatIcon } from '@chakra-ui/icons';
 import React, { useState, useEffect, useContext } from 'react';
 import { MarcadorDisponible, MarcadorComprado } from './Marcador';
 import DummyJSON from './DummyData.json';
@@ -102,14 +102,21 @@ export default function Tabla() {
         <Divider />
         <HStack spacing={8} paddingBottom="5px">
           <VStack>
-            <MarcadorDisponible />
             <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
+            <MarcadorDisponible />
           </VStack>
           <VStack>
-            <MarcadorComprado isInvisible={true} />
             <Text>Boletos vendidos: {fetchedData[0].sold}</Text>
+            <MarcadorComprado isInvisible={true} />
           </VStack>
         </HStack>
+        <VStack>
+          <HStack>
+            <ArrowBackIcon />
+            <ArrowForwardIcon />
+          </HStack>
+          <Text pb={3}>ㅤDesliza sobre la tabla para ver más columnasㅤ</Text>
+        </VStack>
       </VStack>
       {/* TABLA */}
       <Box
