@@ -5,7 +5,7 @@ export function MarcadorDisponible() {
   return (
     <Box
       width="45px"
-      height="40px"
+      height="45px"
       borderWidth="2.5px"
       borderRadius="5px"
       borderColor="#1e62aa"
@@ -20,18 +20,14 @@ export function MarcadorComprado(props) {
   return (
     <Box
       width="45px"
-      height="40px"
+      height="45px"
       borderRadius="5px"
-      backgroundColor="#30d15e"
+      backgroundColor="green.500"
       display="flex"
       alignItems="center"
       justifyContent="center"
     >
-      {props.isInvisible ? (
-        <></>
-      ) : (
-        <Text fontSize="13.5px">${props.precio}</Text>
-      )}
+      {props.isInvisible ? <></> : <Text fontSize="15px">${props.precio}</Text>}
     </Box>
   );
 }

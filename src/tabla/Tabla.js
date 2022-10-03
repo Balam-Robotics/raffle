@@ -16,15 +16,18 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { RepeatIcon } from '@chakra-ui/icons';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { MarcadorDisponible, MarcadorComprado } from './Marcador';
 import DummyJSON from './DummyData.json';
+import { UserContext } from '../UserContext';
 
 export default function Tabla() {
   //Hooks
   const [fetchedData, setFetechedData] = useState(DummyJSON);
-  const [loading, setLoading] = useState(false);
-  const [errorOccured, setErrorOccured] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const [errorOccured, setErrorOccured] = useState(false);
+  const { loading, setLoading, errorOccured, setErrorOccured } =
+    useContext(UserContext);
 
   //Toast
   const toast = useToast();
@@ -78,13 +81,13 @@ export default function Tabla() {
           rightIcon={<RepeatIcon />}
           colorScheme="teal"
           variant="outline"
-          loadingText="Obteniendo datos"
+          loadingText="Actulizando datos"
           onClick={() => {
             fetchData();
           }}
           isLoading={loading}
         >
-          Recargar tabla
+          Actualizar tabla
         </Button>
 
         {!errorOccured ? (
@@ -99,7 +102,7 @@ export default function Tabla() {
         <Divider />
         <HStack spacing={8} paddingBottom="5px">
           <VStack>
-            <MarcadorDisponible isInvisible={true} />
+            <MarcadorDisponible />
             <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
           </VStack>
           <VStack>
