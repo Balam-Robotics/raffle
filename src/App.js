@@ -3,36 +3,58 @@ import {
   ChakraProvider,
   Box,
   Text,
-  Link,
   VStack,
-  Code,
   Grid,
   theme,
+  HStack,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import Inicio from './inicio/Inicio';
+import Tabla from './tabla/Tabla';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
+      <Box textAlign="center" fontFamily="co-text">
+        <Grid padding={3}>
+          <HStack>
+            <Text
+              fontSize="3xl"
+              fontWeight="800"
+              pointerEvents="none"
+              userSelect="none"
             >
-              Learn Chakra
-            </Link>
+              Balam
+            </Text>
+            <ColorModeSwitcher />
+          </HStack>
+          <VStack p={5}>
+            <Text fontSize="3xl" fontWeight="600">
+              🏆 ¡Rifa Balam 2022! 🏆
+            </Text>
+            <Text fontSize="xl">
+              ¡Participa y ve todo lo que podrías ganarte!
+            </Text>
           </VStack>
+          <Tabs variant="enclosed" align="center">
+            <TabList>
+              <Tab>Inicio</Tab>
+              <Tab>Tabla</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                <Inicio />
+              </TabPanel>
+              <TabPanel>
+                <Tabla />
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
         </Grid>
       </Box>
     </ChakraProvider>
