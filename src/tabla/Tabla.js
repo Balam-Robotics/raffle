@@ -16,7 +16,7 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { RepeatIcon } from '@chakra-ui/icons';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MarcadorDisponible, MarcadorComprado } from './Marcador';
 import DummyJSON from './DummyData.json';
 
@@ -40,7 +40,7 @@ export default function Tabla() {
 
   //Data fetching
   const url =
-    'https://api.steinhq.com/v1/storages/6338ff24eced9b09e99d8202/table';
+    'https://api.steinhq.com/v1/storages/633aeaabeced9b09e99dcb17/table';
 
   const fetchData = () => {
     setLoading(true);
@@ -62,6 +62,10 @@ export default function Tabla() {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -96,11 +100,11 @@ export default function Tabla() {
         <HStack spacing={8} paddingBottom="5px">
           <VStack>
             <MarcadorDisponible />
-            <Text>Boletos disponibles</Text>
+            <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
           </VStack>
           <VStack>
             <MarcadorComprado />
-            <Text>Boletos vendidos</Text>
+            <Text>Boletos vendidos: {fetchedData[0].sold}</Text>
           </VStack>
         </HStack>
       </VStack>
@@ -137,11 +141,6 @@ export default function Tabla() {
                 <Th>R</Th>
                 <Th>S</Th>
                 <Th>T</Th>
-                <Th>U</Th>
-                <Th>V</Th>
-                <Th>W</Th>
-                <Th>X</Th>
-                <Th>Y</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -285,41 +284,6 @@ export default function Tabla() {
                   </Td>
                   <Td>
                     {item.T === 'Z' ? (
-                      <MarcadorDisponible />
-                    ) : (
-                      <MarcadorComprado />
-                    )}
-                  </Td>
-                  <Td>
-                    {item.U === 'Z' ? (
-                      <MarcadorDisponible />
-                    ) : (
-                      <MarcadorComprado />
-                    )}
-                  </Td>
-                  <Td>
-                    {item.V === 'Z' ? (
-                      <MarcadorDisponible />
-                    ) : (
-                      <MarcadorComprado />
-                    )}
-                  </Td>
-                  <Td>
-                    {item.W === 'Z' ? (
-                      <MarcadorDisponible />
-                    ) : (
-                      <MarcadorComprado />
-                    )}
-                  </Td>
-                  <Td>
-                    {item.X === 'Z' ? (
-                      <MarcadorDisponible />
-                    ) : (
-                      <MarcadorComprado />
-                    )}
-                  </Td>
-                  <Td>
-                    {item.Y === 'Z' ? (
                       <MarcadorDisponible />
                     ) : (
                       <MarcadorComprado />
