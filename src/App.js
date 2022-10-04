@@ -5,23 +5,30 @@ import {
   Text,
   VStack,
   Grid,
-  theme,
   HStack,
   Tabs,
   TabList,
   Tab,
   TabPanels,
   TabPanel,
+  extendTheme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Inicio from './inicio/Inicio';
 import Tabla from './tabla/Tabla';
 import DataFetchingIndicator from './DataFetchingIndicator';
 import { UserContext } from './UserContext';
+import PurchaseInquiry from './purchase_inquiry/PurchaseInquiry';
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [errorOccured, setErrorOccured] = useState(false);
+
+  const theme = extendTheme({
+    config: {
+      initialColorMode: 'dark',
+    },
+  });
 
   return (
     <ChakraProvider theme={theme}>
@@ -56,6 +63,7 @@ function App() {
               <TabList>
                 <Tab>Inicio</Tab>
                 <Tab>Tabla</Tab>
+                <Tab>Consultar Compra</Tab>
               </TabList>
               <TabPanels>
                 <TabPanel>
@@ -63,6 +71,9 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                   <Tabla />
+                </TabPanel>
+                <TabPanel>
+                  <PurchaseInquiry />
                 </TabPanel>
               </TabPanels>
             </Tabs>

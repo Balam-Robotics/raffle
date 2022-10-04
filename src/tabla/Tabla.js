@@ -15,7 +15,7 @@ import {
   TableContainer,
   Divider,
 } from '@chakra-ui/react';
-import { ArrowBackIcon, ArrowForwardIcon, RepeatIcon } from '@chakra-ui/icons';
+import { InfoOutlineIcon, RepeatIcon } from '@chakra-ui/icons';
 import React, { useState, useEffect, useContext } from 'react';
 import { MarcadorDisponible, MarcadorComprado } from './Marcador';
 import DummyJSON from './DummyData.json';
@@ -35,7 +35,7 @@ export default function Tabla() {
     toast({
       title: '¡Datos actualizados!',
       status: 'success',
-      duration: 2000,
+      duration: 1000,
       isClosable: true,
       position: 'top',
     });
@@ -100,23 +100,26 @@ export default function Tabla() {
           </Badge>
         )}
         <Divider />
-        <HStack spacing={8} paddingBottom="5px">
+
+        <HStack spacing={8} paddingBottom="30px">
           <VStack>
             <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
-            <MarcadorDisponible />
+            <MarcadorDisponible letter=":)" />
           </VStack>
           <VStack>
             <Text>Boletos vendidos: {fetchedData[0].sold}</Text>
             <MarcadorComprado isInvisible={true} />
           </VStack>
         </HStack>
-        <VStack>
-          <HStack>
-            <ArrowBackIcon />
-            <ArrowForwardIcon />
-          </HStack>
-          <Text pb={3}>ㅤDesliza sobre la tabla para ver más columnasㅤ</Text>
-        </VStack>
+      </VStack>
+      <VStack>
+        <HStack>
+          <InfoOutlineIcon />
+        </HStack>
+        <Text pb={3}>
+          Presiona o pasa tu cursor por encima de alguna casilla para revelar su
+          celda
+        </Text>
       </VStack>
       {/* TABLA */}
       <Box
@@ -161,142 +164,222 @@ export default function Tabla() {
                   </Td>
                   <Td>
                     {item.A === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="A" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.A} />
+                      <MarcadorComprado
+                        precio={item.A}
+                        letter="A"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.B === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="B" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.B} />
+                      <MarcadorComprado
+                        precio={item.B}
+                        letter="B"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.C === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="C" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.C} />
+                      <MarcadorComprado
+                        precio={item.C}
+                        letter="C"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.D === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="D" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.D} />
+                      <MarcadorComprado
+                        precio={item.D}
+                        letter="D"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.E === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="E" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.E} />
+                      <MarcadorComprado
+                        precio={item.E}
+                        letter="E"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.F === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="F" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.F} />
+                      <MarcadorComprado
+                        precio={item.F}
+                        letter="F"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.G === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="G" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.G} />
+                      <MarcadorComprado
+                        precio={item.G}
+                        letter="G"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.H === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="H" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.H} />
+                      <MarcadorComprado
+                        precio={item.H}
+                        letter="H"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.I === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="I" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.I} />
+                      <MarcadorComprado
+                        precio={item.I}
+                        letter="I"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.J === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="J" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.J} />
+                      <MarcadorComprado
+                        precio={item.J}
+                        letter="J"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.K === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="K" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.K} />
+                      <MarcadorComprado
+                        precio={item.K}
+                        letter="K"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.L === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="L" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.L} />
+                      <MarcadorComprado
+                        precio={item.L}
+                        letter="L"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.M === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="M" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.M} />
+                      <MarcadorComprado
+                        precio={item.M}
+                        letter="M"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.N === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="N" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.N} />
+                      <MarcadorComprado
+                        precio={item.N}
+                        letter="N"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.O === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="O" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.O} />
+                      <MarcadorComprado
+                        precio={item.O}
+                        letter="O"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.P === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="P" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.P} />
+                      <MarcadorComprado
+                        precio={item.P}
+                        letter="P"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.Q === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="Q" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.Q} />
+                      <MarcadorComprado
+                        precio={item.Q}
+                        letter="Q"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.R === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="R" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.R} />
+                      <MarcadorComprado
+                        precio={item.R}
+                        letter="R"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.S === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="S" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.S} />
+                      <MarcadorComprado
+                        precio={item.S}
+                        letter="S"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                   <Td>
                     {item.T === 'Z' ? (
-                      <MarcadorDisponible />
+                      <MarcadorDisponible letter="T" index={i + 1} />
                     ) : (
-                      <MarcadorComprado precio={item.T} />
+                      <MarcadorComprado
+                        precio={item.T}
+                        letter="T"
+                        index={i + 1}
+                      />
                     )}
                   </Td>
                 </Tr>
