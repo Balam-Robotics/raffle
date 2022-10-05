@@ -132,7 +132,8 @@ export default function PurchaseInquiry() {
                 <Th>ID</Th>
                 <Th>Nombre</Th>
                 <Th>Esatus de pago</Th>
-                <Th>Contacto</Th>
+                <Th>Correo</Th>
+                <Th>Celular</Th>
                 <Th>Fecha de compra</Th>
                 <Th>Costo</Th>
                 <Th>Celda elegida</Th>
@@ -144,14 +145,19 @@ export default function PurchaseInquiry() {
                     <Td>{item.id}</Td>
                     <Td>{item.nombre}</Td>
                     {item.estatus !== 'Pagado' ? (
-                      <Td color="red.400">Debe ${item.estatus}</Td>
+                      <Td color="red.400">Debe {item.estatus}</Td>
                     ) : (
                       <Td color="green.400">Pagado</Td>
                     )}
-                    {item.contacto === '' ? (
+                    {item.correo === '' ? (
                       <Td color="red.400">Sin contacto</Td>
                     ) : (
-                      <Td color="green.400">{item.contacto}</Td>
+                      <Td color="green.400">{item.correo}</Td>
+                    )}
+                    {item.celular === '' ? (
+                      <Td color="red.400">Sin contacto</Td>
+                    ) : (
+                      <Td color="green.400">{item.celular}</Td>
                     )}
                     <Td>{item.fecha}</Td>
                     <Td>{item.costo}</Td>
