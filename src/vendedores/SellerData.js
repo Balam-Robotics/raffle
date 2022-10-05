@@ -134,6 +134,7 @@ export default function SellerData() {
                   <Tr key={i}>
                     <Td>{i + 1}</Td>
                     <Td>{item.id}</Td>
+                    <Td>{item.vendedor}</Td>
                     <Td>{item.nombre}</Td>
                     {item.estatus !== 'Pagado' ? (
                       <Td color="red.400">Debe {item.estatus}</Td>
@@ -153,7 +154,6 @@ export default function SellerData() {
                     <Td>{item.fecha}</Td>
                     <Td>{item.costo}</Td>
                     <Td>{item.celda}</Td>
-                    <Td>{item.vendedor}</Td>
                   </Tr>
                 ))}
               </Tbody>
