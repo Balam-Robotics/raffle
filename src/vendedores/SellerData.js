@@ -17,14 +17,13 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import DummyData from './DummyData.json';
+import DummyJSON from './DummyData.json';
 
-export default function PurchaseInquiry() {
-  //FETCH STATES
+export default function SellerData() {
   const [loading, setLoading] = useState(false);
   const [errorOccured, setErrorOccured] = useState(false);
   const [invalid, setInvalid] = useState(false);
-  const [fetchedData, setFetechedData] = useState(DummyData);
+  const [fetchedData, setFetechedData] = useState(DummyJSON);
 
   //INPUT STATES
   const [value, setValue] = React.useState('');
@@ -33,7 +32,7 @@ export default function PurchaseInquiry() {
     setInvalid(false);
   };
 
-  const url = `https://api.steinhq.com/v1/storages/633aeaabeced9b09e99dcb17/ticket?search={"id":"${value}"}`;
+  const url = `https://api.steinhq.com/v1/storages/633aeaabeced9b09e99dcb17/ticket?search={"vendedor":"${value}"}`;
   const fetchData = () => {
     setLoading(true);
     setErrorOccured(false);
@@ -63,17 +62,10 @@ export default function PurchaseInquiry() {
   return (
     <>
       <VStack width="clamp(300px, 60vw, 550px)" spacing={5}>
-        <Text>
-          Si quieres consultar la información y el estado de la compra de tu
-          boleto, por favor, escribe debajo el ID de compra. Si no lo tienes,
-          acércate a tu vendedor o a un miembro de Balam para brindártelo. Si
-          hay información errónea, desactualizada, no apareces, o si quieres
-          cambiar el método de contacto, ¡también acércate a nosotros!
-        </Text>
+        <Text>Sección supersecreta</Text>
         <HStack>
           <Input
-            placeholder="AAA00"
-            maxLength={5}
+            placeholder=""
             size="lg"
             value={value}
             onChange={handleChange}
@@ -82,7 +74,6 @@ export default function PurchaseInquiry() {
           {loading ? (
             <IconButton
               icon={<Spinner />}
-              maxLength={5}
               isDisabled={true}
               variant="outline"
               colorScheme="teal"
@@ -95,13 +86,13 @@ export default function PurchaseInquiry() {
               colorScheme="teal"
               size="lg"
               onClick={() => fetchData()}
-              isDisabled={value.length === 5 ? false : true}
+              isDisabled={value.length >= 4 ? false : true}
             />
           )}
         </HStack>
         {invalid ? (
           <Badge colorScheme="red">
-            <Text>El ID no existe o es incorrecto.</Text>
+            <Text>No estás en los registros.</Text>
           </Badge>
         ) : (
           <></>
@@ -127,7 +118,9 @@ export default function PurchaseInquiry() {
           <TableContainer>
             <Table>
               <Thead>
+                <Th>-</Th>
                 <Th>ID</Th>
+                <Th>Vendedor</Th>
                 <Th>Nombre</Th>
                 <Th>Esatus de pago</Th>
                 <Th>Correo</Th>
@@ -135,11 +128,11 @@ export default function PurchaseInquiry() {
                 <Th>Fecha de compra</Th>
                 <Th>Costo</Th>
                 <Th>Celda elegida</Th>
-                <Th>Vendedor</Th>
               </Thead>
               <Tbody>
                 {fetchedData.map((item, i) => (
                   <Tr key={i}>
+                    <Td>{i + 1}</Td>
                     <Td>{item.id}</Td>
                     <Td>{item.nombre}</Td>
                     {item.estatus !== 'Pagado' ? (

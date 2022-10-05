@@ -19,6 +19,7 @@ import Tabla from './tabla/Tabla';
 import DataFetchingIndicator from './DataFetchingIndicator';
 import { UserContext } from './UserContext';
 import PurchaseInquiry from './purchase_inquiry/PurchaseInquiry';
+import SellerData from './vendedores/SellerData';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -59,13 +60,18 @@ function App() {
                 ¡Participa y ve todo lo que podrías ganarte!
               </Text>
             </VStack>
-            <Tabs variant="enclosed" align="center">
+            <Tabs variant="enclosed" align="center" defaultIndex={1}>
               <TabList>
+                <Tab isDisabled={true}></Tab>
                 <Tab>Inicio</Tab>
                 <Tab>Tabla</Tab>
                 <Tab>Consultar Compra</Tab>
+                <Tab></Tab>
               </TabList>
               <TabPanels>
+                <TabPanel>
+                  <></>
+                </TabPanel>
                 <TabPanel>
                   <Inicio />
                 </TabPanel>
@@ -74,6 +80,9 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                   <PurchaseInquiry />
+                </TabPanel>
+                <TabPanel>
+                  <SellerData />
                 </TabPanel>
               </TabPanels>
             </Tabs>
