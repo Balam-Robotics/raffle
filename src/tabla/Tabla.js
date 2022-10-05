@@ -67,7 +67,7 @@ export default function Tabla() {
   };
 
   useEffect(() => {
-    // fetchData();
+    fetchData();
   }, []);
 
   return (
