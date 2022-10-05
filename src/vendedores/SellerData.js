@@ -23,7 +23,7 @@ export default function SellerData() {
   const [loading, setLoading] = useState(false);
   const [errorOccured, setErrorOccured] = useState(false);
   const [invalid, setInvalid] = useState(false);
-  const [fetchedData, setFetechedData] = useState(DummyJSON);
+  const [fetchedData, setFetechedData] = useState([]);
 
   //INPUT STATES
   const [value, setValue] = React.useState('');
@@ -31,6 +31,10 @@ export default function SellerData() {
     setValue(event.target.value);
     setInvalid(false);
   };
+
+  //DEBT AND EARNED
+  const [sold, setSold] = useState();
+  const [debt, setDebt] = useState();
 
   const url = `https://api.steinhq.com/v1/storages/633aeaabeced9b09e99dcb17/ticket?search={"vendedor":"${value}"}`;
   const fetchData = () => {
@@ -44,13 +48,13 @@ export default function SellerData() {
       .then(data => {
         setLoading(false);
         setFetechedData(data);
-
         //HANDLE ID DATA EXISTS
         if (JSON.stringify(data) !== '[]') {
           setInvalid(false);
         } else {
           setInvalid(true);
         }
+        //SOLD DATA
       })
       .catch(error => {
         setErrorOccured(true);
@@ -89,6 +93,38 @@ export default function SellerData() {
               isDisabled={value.length >= 4 ? false : true}
             />
           )}
+        </HStack>
+        <HStack>
+          {/* CALCULO DE CUANTO SE DEBE */}
+          <Text>
+            Has vendido: $
+            {fetchedData.reduce(
+              (accumulator, currentValue) =>
+                parseInt(accumulator) + parseInt(currentValue.costo),
+              0
+            )}
+          </Text>
+          <Text>
+            Deuda: $
+            {fetchedData.reduce(
+              (accumulator, currentValue) =>
+                parseInt(accumulator) + parseInt(`0${currentValue.estatus}`),
+              0
+            )}
+          </Text>
+          <Text>
+            Has pagado: $
+            {fetchedData.reduce(
+              (accumulator, currentValue) =>
+                parseInt(accumulator) + parseInt(`0${currentValue.costo}`),
+              0
+            ) -
+              fetchedData.reduce(
+                (accumulator, currentValue) =>
+                  parseInt(accumulator) + parseInt(`0${currentValue.estatus}`),
+                0
+              )}
+          </Text>
         </HStack>
         {invalid ? (
           <Badge colorScheme="red">
@@ -137,7 +173,7 @@ export default function SellerData() {
                     <Td>{item.vendedor}</Td>
                     <Td>{item.nombre}</Td>
                     {item.estatus !== 'Pagado' ? (
-                      <Td color="red.400">Debe {item.estatus}</Td>
+                      <Td color="red.400">Debe ${item.estatus}</Td>
                     ) : (
                       <Td color="green.400">Pagado</Td>
                     )}
@@ -152,7 +188,7 @@ export default function SellerData() {
                       <Td color="green.400">{item.celular}</Td>
                     )}
                     <Td>{item.fecha}</Td>
-                    <Td>{item.costo}</Td>
+                    <Td>${item.costo}</Td>
                     <Td>{item.celda}</Td>
                   </Tr>
                 ))}

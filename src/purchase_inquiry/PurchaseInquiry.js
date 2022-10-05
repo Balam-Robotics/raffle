@@ -24,7 +24,7 @@ export default function PurchaseInquiry() {
   const [loading, setLoading] = useState(false);
   const [errorOccured, setErrorOccured] = useState(false);
   const [invalid, setInvalid] = useState(false);
-  const [fetchedData, setFetechedData] = useState(DummyData);
+  const [fetchedData, setFetechedData] = useState([]);
 
   //INPUT STATES
   const [value, setValue] = React.useState('');
