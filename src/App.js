@@ -46,7 +46,7 @@ function App() {
                   pointerEvents="none"
                   userSelect="none"
                 >
-                  Balam
+                  Balam | Zedal
                 </Text>
                 <ColorModeSwitcher />
               </HStack>
@@ -54,7 +54,7 @@ function App() {
             </HStack>
             <VStack p={5}>
               <Text fontSize="3xl" fontWeight="600">
-                🏆 ¡Rifa Balam 2022! 🏆
+                🏆 ¡Rifa Zedam 2022! 🏆
               </Text>
               <Text fontSize="xl">
                 ¡Participa y ve todo lo que podrías ganarte!
