@@ -56,16 +56,14 @@ function App() {
               <Text fontSize="3xl" fontWeight="600">
                 🏆 ¡Rifa Zedam 2022! 🏆
               </Text>
-              <Text fontSize="xl">
-                ¡Participa y ve todo lo que podrías ganarte!
-              </Text>
+              <Text fontSize="xl">¡Gracias por participar! 🫶🏻❤️</Text>
             </VStack>
             <Tabs variant="enclosed" align="center" defaultIndex={1}>
               <TabList>
                 <Tab isDisabled={true}></Tab>
-                <Tab>Inicio</Tab>
+                <Tab>Ganadores</Tab>
                 <Tab>Tabla</Tab>
-                <Tab>Consultar Compra</Tab>
+                <Tab>Consultar</Tab>
                 <Tab></Tab>
               </TabList>
               <TabPanels>

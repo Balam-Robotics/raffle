@@ -73,8 +73,8 @@ export default function Tabla() {
     <>
       <VStack width="clamp(300px, 60vw, 550px)" spacing={5}>
         <Text>
-          Para consultar el estado de la tabla de la rifa con los datos más
-          recientes, presiona el botón de abajo.
+          Esta es la tabla final. De parte de Balam te queremos agradecer tu
+          participación. ¡Eres increíble!
         </Text>
         <Button
           rightIcon={<RepeatIcon />}
@@ -84,9 +84,10 @@ export default function Tabla() {
           onClick={() => {
             fetchData();
           }}
-          isLoading={loading}
+          isLoading={false}
+          disabled={true}
         >
-          Actualizar tabla
+          ¡Gracias por participar!
         </Button>
 
         {!errorOccured ? (
@@ -101,17 +102,32 @@ export default function Tabla() {
         <Divider />
 
         <HStack spacing={8} paddingBottom="30px">
-          <VStack>
-            <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
+          {/* <VStack>
+            <Text>Boletos faltantes: {fetchedData[0].avaliable}</Text>
             <MarcadorDisponible letter=":)" />
-          </VStack>
+          </VStack> */}
           <VStack>
-            <Text>Boletos vendidos: {fetchedData[0].sold}</Text>
-            <MarcadorComprado isInvisible={true} />
+            <Text fontSize="20px">Se vendieron</Text>
+            <Text fontSize="25px" fontWeight="bold">
+              ¡{fetchedData[0].sold} Boletos! 🙌🏻
+            </Text>
+            <Box
+              width="60px"
+              height="60px"
+              borderRadius="5px"
+              backgroundColor="green.500"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Text fontWeight="bold" fontSize="30">
+                🌟
+              </Text>
+            </Box>
           </VStack>
         </HStack>
       </VStack>
-      <VStack>
+      {/* <VStack>
         <HStack>
           <InfoOutlineIcon />
         </HStack>
@@ -119,7 +135,7 @@ export default function Tabla() {
           Presiona o pasa tu cursor por encima de alguna casilla para revelar su
           celda
         </Text>
-      </VStack>
+      </VStack> */}
       {/* TABLA */}
       <Box
         width="clamp(300px, 90vw, 1700px);"
