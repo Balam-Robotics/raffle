@@ -1,5 +1,5 @@
 import { WarningIcon } from '@chakra-ui/icons';
-import { Box, Spinner, Text, VStack } from '@chakra-ui/react';
+import { Box, HStack, Spinner, Text } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 
@@ -10,19 +10,19 @@ export default function DataFetchingIndicator() {
     <>
       {loading ? (
         <Box>
-          <VStack p={3}>
+          <HStack p={3}>
             <Spinner />
-            <Text>Cargando</Text>
-          </VStack>
+            <Text>Actulizando datos</Text>
+          </HStack>
         </Box>
       ) : (
         <>
           {errorOccured ? (
             <Box>
-              <VStack p={3}>
+              <HStack p={3}>
                 <WarningIcon color="red.400" fontSize="20px" />
                 <Text>¡Ocurrió un error!</Text>
-              </VStack>
+              </HStack>
             </Box>
           ) : (
             <></>

@@ -54,6 +54,7 @@ export default function Tabla() {
         return response.json();
       })
       .then(data => {
+        console.log(data);
         setLoading(false);
         setFetechedData(data);
         showToast();
