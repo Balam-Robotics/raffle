@@ -9,17 +9,7 @@ import Polaroid from '../assets/Polaroid.png';
 
 export default function Inicio() {
   return (
-    <VStack>
-      <VStack>
-        <Text fontSize="20px">Los ganadores se anunciarán el</Text>
-        <Text fontSize="30px" fontWeight="bold">
-          ¡Viernes 18 de noviembre!
-        </Text>
-      </VStack>
-      <VStack width="clamp(300px, 60vw, 550px)">
-        <Divider />
-      </VStack>
-      <SimpleGrid
+    <SimpleGrid
         minChildWidth="280px"
         spacing="30px"
         width="clamp(370px, 60vw, 1200px);"
@@ -50,6 +40,5 @@ export default function Inicio() {
           image={Echo}
         />
       </SimpleGrid>
-    </VStack>
   );
 }

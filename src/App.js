@@ -56,12 +56,14 @@ function App() {
               <Text fontSize="3xl" fontWeight="600">
                 🏆 ¡Rifa Balam 2022! 🏆
               </Text>
-              <Text fontSize="xl">¡Gracias por participar! 🫶🏻❤️</Text>
+              <Text fontSize="xl">
+                ¡Participa y ve todo lo que podrías ganarte!
+              </Text>
             </VStack>
             <Tabs variant="enclosed" align="center" defaultIndex={1}>
               <TabList>
                 <Tab isDisabled={true}></Tab>
-                <Tab>Ganadores</Tab>
+                <Tab>Inicio</Tab>
                 <Tab>Tabla</Tab>
                 <Tab>Consultar</Tab>
                 <Tab></Tab>

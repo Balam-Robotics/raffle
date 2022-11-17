@@ -74,8 +74,8 @@ export default function Tabla() {
     <>
       <VStack width="clamp(300px, 60vw, 550px)" spacing={5}>
         <Text>
-          Esta es la tabla final. De parte de Balam te queremos agradecer tu
-          participación. ¡Eres increíble!
+          Para consultar el estado de la tabla de la rifa con los datos más
+          recientes, presiona el botón de abajo.
         </Text>
         <Button
           rightIcon={<RepeatIcon />}
@@ -86,9 +86,8 @@ export default function Tabla() {
             fetchData();
           }}
           isLoading={false}
-          disabled={true}
         >
-          ¡Gracias por participar!
+          Actualizar tabla
         </Button>
 
         {!errorOccured ? (
@@ -103,11 +102,15 @@ export default function Tabla() {
         <Divider />
 
         <HStack spacing={8} paddingBottom="30px">
-          {/* <VStack>
-            <Text>Boletos faltantes: {fetchedData[0].avaliable}</Text>
-            <MarcadorDisponible letter=":)" />
-          </VStack> */}
           <VStack>
+            <Text>Boletos disponibles: {fetchedData[0].avaliable}</Text>
+            <MarcadorDisponible letter=":)" />
+          </VStack>
+          <VStack>
+            <Text>Boletos vendidos: {fetchedData[0].sold}</Text>
+            <MarcadorComprado isInvisible={true} />
+          </VStack>
+          {/* <VStack>
             <Text fontSize="20px">Se vendieron</Text>
             <Text fontSize="25px" fontWeight="bold">
               ¡{fetchedData[0].sold} Boletos! 🙌🏻
@@ -125,10 +128,10 @@ export default function Tabla() {
                 🌟
               </Text>
             </Box>
-          </VStack>
+          </VStack> */}
         </HStack>
       </VStack>
-      {/* <VStack>
+      <VStack>
         <HStack>
           <InfoOutlineIcon />
         </HStack>
@@ -136,7 +139,7 @@ export default function Tabla() {
           Presiona o pasa tu cursor por encima de alguna casilla para revelar su
           celda
         </Text>
-      </VStack> */}
+      </VStack>
       {/* TABLA */}
       <Box
         width="clamp(300px, 90vw, 1700px);"
